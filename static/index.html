@@ -1,0 +1,2008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmartCart AI - Smart Bundle Recommendation System</title>
+<style>
+/* =========================================================
+   GLOBAL
+========================================================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background:#f8f9fa;
+    color:#222;
+}
+
+button{
+    cursor:pointer;
+    border:none;
+    transition: 0.2s ease;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* =========================================================
+   TOP HEADER
+========================================================= */
+.header{
+    background:#ffffff;
+    height:72px;
+    display:flex;
+    align-items:center;
+    gap:25px;
+    padding:0 5%;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.logo{
+    font-size:26px;
+    font-weight:800;
+    color:#7b1fa2;
+}
+
+.logo span{
+    color:#ff7043;
+}
+
+.logo small{
+    display:block;
+    font-size:9px;
+    letter-spacing:2px;
+    color:#777;
+}
+
+.search{
+    flex:1;
+    display:flex;
+    background:#f3f3f3;
+    border-radius:7px;
+    overflow:hidden;
+}
+
+.search input{
+    flex:1;
+    padding:13px 16px;
+    border:none;
+    outline:none;
+    background:transparent;
+    font-size:14px;
+}
+
+.search button{
+    width:55px;
+    background:#7b1fa2;
+    color:white;
+    font-size:18px;
+}
+
+.header-icon{
+    font-size:14px;
+    text-align:center;
+    cursor:pointer;
+}
+
+.header-icon span{
+    display:block;
+    font-size:22px;
+}
+
+.cart-icon{
+    position:relative;
+}
+
+.cart-number{
+    position:absolute;
+    top:-5px;
+    right:-8px;
+    background:#ff7043;
+    color:white;
+    width:19px;
+    height:19px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:10px;
+}
+
+/* =========================================================
+   NAV
+========================================================= */
+.nav{
+    background:white;
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    padding:12px;
+    border-bottom:1px solid #eee;
+    overflow:auto;
+}
+
+.nav button{
+    background:none;
+    font-size:14px;
+    white-space:nowrap;
+    font-weight: 600;
+    color: #4b5563;
+}
+
+.nav button:hover{
+    color:#7b1fa2;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+.hero{
+    min-height:420px;
+    background:
+    linear-gradient(
+        90deg,
+        rgba(50,0,60,.90),
+        rgba(50,0,60,.4)
+    ),
+    url("https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1600");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    padding:60px 8%;
+    color:white;
+}
+
+.hero-content{
+    max-width:680px;
+}
+
+.hero h1{
+    font-size:48px;
+    line-height:1.15;
+    margin-bottom:18px;
+}
+
+.hero h1 span{
+    color:#ffb74d;
+}
+
+.hero p{
+    font-size:17px;
+    line-height:1.7;
+    color:#eee;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:15px;
+    margin-top:28px;
+}
+
+.primary{
+    background:#ff7043;
+    color:white;
+    padding:14px 25px;
+    border-radius:6px;
+    font-weight:bold;
+}
+
+.secondary{
+    background:white;
+    color:#7b1fa2;
+    padding:14px 25px;
+    border-radius:6px;
+    font-weight:bold;
+}
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+.container{
+    width:90%;
+    max-width:1450px;
+    margin:auto;
+}
+
+.section{
+    margin:45px 0;
+}
+
+.section-title{
+    margin-bottom:22px;
+}
+
+.section-title h2{
+    font-size:27px;
+    color: #1f2937;
+}
+
+.section-title p{
+    color:#6b7280;
+    margin-top:6px;
+}
+
+/* =========================================================
+   CATEGORY
+========================================================= */
+.category-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+    gap:18px;
+}
+
+.category{
+    background:white;
+    padding:20px 10px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 2px 8px rgba(0,0,0,.06);
+    transition:.2s;
+    cursor:pointer;
+}
+
+.category:hover{
+    transform:translateY(-5px);
+    box-shadow:0 7px 18px rgba(0,0,0,.12);
+}
+
+.category-icon{
+    font-size:38px;
+    margin-bottom:8px;
+}
+
+.category p{
+    font-size:13px;
+    font-weight:bold;
+}
+
+/* =========================================================
+   PRODUCT GRID
+========================================================= */
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+    gap:20px;
+}
+
+.product{
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    position:relative;
+    box-shadow:0 2px 8px rgba(0,0,0,.07);
+    transition:.25s;
+    display: flex;
+    flex-direction: column;
+}
+
+.product:hover{
+    transform:translateY(-5px);
+    box-shadow:0 8px 22px rgba(0,0,0,.14);
+}
+
+.product-img{
+    height:200px;
+    position:relative;
+}
+
+.product-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.wishlist{
+    position:absolute;
+    top:10px;
+    right:10px;
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    background:white;
+    font-size:18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.badge{
+    position:absolute;
+    left:10px;
+    top:10px;
+    background:#e53935;
+    color:white;
+    padding:5px 8px;
+    font-size:10px;
+    font-weight: bold;
+    border-radius:4px;
+}
+
+.product-info{
+    padding:14px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-name{
+    font-size:15px;
+    font-weight:bold;
+    min-height:38px;
+    color: #111827;
+}
+
+.product-category{
+    color:#6b7280;
+    font-size:12px;
+    margin-top:4px;
+}
+
+.rating{
+    color:#f5a623;
+    margin-top:6px;
+    font-size:12px;
+}
+
+.price{
+    font-size:20px;
+    font-weight:bold;
+    margin-top:8px;
+    color: #111;
+}
+
+.old{
+    text-decoration:line-through;
+    color:#999;
+    font-size:13px;
+    margin-left:6px;
+}
+
+.discount{
+    color:#16803c;
+    font-size:12px;
+    font-weight:bold;
+    margin-left:6px;
+}
+
+.sales{
+    color:#666;
+    font-size:11px;
+    margin-top:6px;
+}
+
+.profit{
+    color:#16803c;
+    font-size:12px;
+    font-weight: 600;
+    margin-top:5px;
+    background: #e8f5e9;
+    padding: 3px 6px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.product-actions{
+    display:flex;
+    gap:7px;
+    margin-top:auto;
+    padding-top: 12px;
+}
+
+.product-actions button{
+    flex:1;
+    padding:10px;
+    border-radius:5px;
+    font-weight:bold;
+    font-size: 13px;
+}
+
+.view{
+    background:#eee;
+    color: #333;
+}
+
+.add{
+    background:#7b1fa2;
+    color:white;
+}
+
+/* =========================================================
+   AI SECTION
+========================================================= */
+.ai-panel{
+    background:linear-gradient(135deg, #3b0764, #7b1fa2, #9c27b0);
+    color:white;
+    padding:30px;
+    border-radius:14px;
+    box-shadow:0 8px 25px rgba(123,31,162,.25);
+}
+
+.ai-heading{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.ai-heading h2{
+    font-size:27px;
+}
+
+.ai-tag{
+    background:white;
+    color:#7b1fa2;
+    padding:7px 12px;
+    border-radius:20px;
+    font-size:11px;
+    font-weight:bold;
+}
+
+.ai-controls{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-bottom:25px;
+}
+
+.ai-controls select{
+    padding:11px;
+    border-radius:5px;
+    border:none;
+    min-width:150px;
+    font-weight: 500;
+}
+
+.ai-panel .products{
+    color:#222;
+}
+
+/* =========================================================
+   COMBO OFFERS
+========================================================= */
+.combo-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+    gap:22px;
+}
+
+.combo{
+    background:white;
+    border-radius:12px;
+    padding:20px;
+    border:1px solid #e5e7eb;
+    box-shadow:0 3px 10px rgba(0,0,0,.06);
+    display: flex;
+    flex-direction: column;
+}
+
+.combo-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.combo-label{
+    background:#16803c;
+    color:white;
+    padding:5px 8px;
+    font-size:11px;
+    font-weight: bold;
+    border-radius:4px;
+}
+
+.combo-title{
+    font-size:18px;
+    font-weight:bold;
+    margin:14px 0 10px 0;
+    color: #111827;
+}
+
+.combo-items{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    overflow-x:auto;
+    padding: 6px 0;
+}
+
+.combo-product{
+    min-width:90px;
+    text-align:center;
+    background:#f8f9fa;
+    padding:8px;
+    border-radius:7px;
+    font-size: 12px;
+    border: 1px solid #eee;
+}
+
+.combo-product img{
+    width:70px;
+    height:65px;
+    object-fit:cover;
+    border-radius:5px;
+    margin-bottom: 4px;
+}
+
+.plus{
+    font-size:22px;
+    font-weight:bold;
+    color: #7b1fa2;
+}
+
+.combo-prices{
+    margin-top:15px;
+    border-top:1px solid #eee;
+    padding-top:15px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.combo-old{
+    color:#999;
+    text-decoration:line-through;
+    font-size: 14px;
+}
+
+.combo-new{
+    font-size:24px;
+    font-weight:bold;
+    color: #111;
+}
+
+.save{
+    color:#16803c;
+    font-weight:bold;
+    font-size:13px;
+    margin-left: auto;
+}
+
+.reason{
+    margin-top:12px;
+    background:#f0fdf4;
+    padding:12px;
+    border-radius:7px;
+    color:#166534;
+    font-size:12px;
+    line-height:1.6;
+    border-left: 3px solid #22c55e;
+}
+
+.profit-impact{
+    margin-top: 8px;
+    background: #faf5ff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    color: #6b21a8;
+    font-weight: 600;
+}
+
+.combo button{
+    width:100%;
+    padding:12px;
+    margin-top:auto;
+    margin-top: 15px;
+    background:#ff7043;
+    color:white;
+    border-radius:6px;
+    font-weight:bold;
+    font-size: 14px;
+}
+
+.combo button:hover{
+    background:#f4511e;
+}
+
+/* =========================================================
+   DEALS
+========================================================= */
+.deals{
+    background:#fff7ed;
+    padding:25px;
+    border-radius:12px;
+    border: 1px solid #fed7aa;
+}
+
+.deal-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.timer{
+    background:#1f2937;
+    color:white;
+    padding:8px 15px;
+    border-radius:5px;
+    font-weight:bold;
+    letter-spacing: 1px;
+}
+
+/* =========================================================
+   ADMIN ANALYTICS
+========================================================= */
+.admin{
+    background:#0f172a;
+    color:white;
+    padding:30px;
+    border-radius:14px;
+}
+
+.admin h2{
+    margin-bottom:6px;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:15px;
+    margin-top: 20px;
+}
+
+.stat{
+    background:#1e293b;
+    padding:20px;
+    border-radius:9px;
+    border: 1px solid #334155;
+}
+
+.stat small{
+    color:#94a3b8;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.stat h3{
+    font-size:26px;
+    margin-top:8px;
+}
+
+.green{
+    color:#4ade80;
+}
+
+.orange{
+    color:#fb923c;
+}
+
+.blue{
+    color:#60a5fa;
+}
+
+.chart{
+    margin-top:25px;
+    background:#1e293b;
+    padding:20px;
+    border-radius:10px;
+    border: 1px solid #334155;
+}
+
+.bar{
+    margin:14px 0;
+}
+
+.bar-title{
+    display:flex;
+    justify-content:space-between;
+    font-size:12px;
+    margin-bottom:5px;
+    color: #cbd5e1;
+}
+
+.bar-bg{
+    height:10px;
+    background:#334155;
+    border-radius:10px;
+}
+
+.bar-fill{
+    height:100%;
+    background:#a855f7;
+    border-radius:10px;
+}
+
+/* =========================================================
+   MODAL
+========================================================= */
+.modal-bg{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.6);
+    z-index:3000;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal-bg.show{
+    display:flex;
+}
+
+.modal{
+    background:white;
+    max-width:850px;
+    width:100%;
+    max-height:90vh;
+    overflow:auto;
+    border-radius:12px;
+    padding:25px;
+    position:relative;
+}
+
+.close{
+    position:absolute;
+    top:12px;
+    right:15px;
+    background:none;
+    font-size:25px;
+    color: #666;
+}
+
+.modal-product{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.modal-product img{
+    width:100%;
+    height:350px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.modal-info h2{
+    font-size:26px;
+    color: #111;
+}
+
+.modal-price{
+    font-size:28px;
+    font-weight:bold;
+    margin:15px 0;
+    color: #111;
+}
+
+.feature-list{
+    margin:18px 0;
+    line-height:1.9;
+    color: #4b5563;
+    font-size: 14px;
+}
+
+.buy-now{
+    width:100%;
+    padding:14px;
+    background:#7b1fa2;
+    color:white;
+    border-radius:6px;
+    font-weight:bold;
+}
+
+/* =========================================================
+   CART DRAWER
+========================================================= */
+.cart-overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    z-index:1999;
+}
+
+.cart-overlay.show{
+    display:block;
+}
+
+.cart{
+    position:fixed;
+    right:-460px;
+    top:0;
+    width:430px;
+    height:100vh;
+    background:white;
+    z-index:2000;
+    padding:25px;
+    transition:.3s;
+    overflow-y:auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart.show{
+    right:0;
+}
+
+.cart-close{
+    float:right;
+    background:none;
+    font-size:24px;
+    color: #666;
+}
+
+.cart h2{
+    margin-bottom:20px;
+}
+
+.cart-item{
+    display:flex;
+    gap:12px;
+    padding:15px 0;
+    border-bottom:1px solid #eee;
+}
+
+.cart-item img{
+    width:65px;
+    height:65px;
+    object-fit:cover;
+    border-radius:5px;
+}
+
+.cart-item-info{
+    flex:1;
+}
+
+.cart-item-info strong{
+    display:block;
+    margin-bottom:5px;
+    font-size: 14px;
+}
+
+.qty{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-top:8px;
+}
+
+.qty button{
+    width:25px;
+    height:25px;
+    background:#eee;
+    border-radius:3px;
+    font-weight: bold;
+}
+
+.remove{
+    color:#e53935;
+    background:none;
+    margin-top:7px;
+    font-size: 12px;
+}
+
+.cart-total{
+    margin-top:auto;
+    border-top:2px solid #222;
+    padding-top:18px;
+}
+
+.total-line{
+    display:flex;
+    justify-content:space-between;
+    margin:10px 0;
+    font-size: 14px;
+}
+
+.checkout{
+    width:100%;
+    padding:14px;
+    background:#ff7043;
+    color:white;
+    border-radius:6px;
+    font-weight:bold;
+    margin-top:15px;
+}
+
+/* =========================================================
+   TOAST
+========================================================= */
+.toast{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    background:#1f2937;
+    color:white;
+    padding:15px 20px;
+    border-radius:7px;
+    z-index:5000;
+    display:none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.toast.show{
+    display:block;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+footer{
+    background:#111827;
+    color:white;
+    padding:50px 5%;
+    margin-top:60px;
+    text-align:center;
+}
+
+footer h2{
+    color:#ff7043;
+    margin-bottom:10px;
+}
+
+@media(max-width:750px){
+    .header{
+        height:auto;
+        padding:12px;
+        flex-wrap:wrap;
+    }
+    .logo{
+        width:100%;
+    }
+    .search{
+        order:3;
+        width:100%;
+    }
+    .hero{
+        min-height:450px;
+        padding:40px 7%;
+    }
+    .hero h1{
+        font-size:35px;
+    }
+    .modal-product{
+        grid-template-columns:1fr;
+    }
+    .cart{
+        width:95%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+<div class="logo">
+Smart<span>Cart</span>
+<small id="roleSubtitle">PROFIT-AWARE AI SHOPPING</small>
+</div>
+
+<div class="search">
+<input id="searchInput" placeholder="Search products (e.g. Laptop, Bread, Shampoo, Atta)..." onkeyup="searchProducts()">
+<button onclick="searchProducts()">🔍</button>
+</div>
+
+<!-- Dynamic Role Status Indicator -->
+<div id="roleIndicator" style="display:flex;align-items:center;gap:6px;background:#eff6ff;padding:6px 12px;border-radius:20px;font-size:12px;color:#1e40af;font-weight:bold;">
+    <span id="roleDot" style="width:8px;height:8px;border-radius:50%;background:#3b82f6;"></span>
+    <span id="roleText">Customer: Ramesh</span>
+</div>
+
+<div class="header-icon" onclick="openAuthModal()">
+<span>👤</span> <span id="accountBtnText">Account / Login</span>
+</div>
+
+<div class="header-icon" onclick="showWishlist()">
+<span>❤️</span> Wishlist
+</div>
+
+<div class="header-icon cart-icon" onclick="openCart()">
+<span>🛒</span> Cart
+<div id="cartCount" class="cart-number">0</div>
+</div>
+</header>
+
+<!-- NAV -->
+<nav class="nav">
+<button onclick="home()">Home</button>
+<button onclick="scrollToSection('categories')">Categories</button>
+<button onclick="scrollToSection('combos')">🔥 Smart Combos</button>
+<button onclick="scrollToSection('recommendations')">🤖 AI Engine</button>
+<button onclick="scrollToSection('deals')">⚡ Flash Deals</button>
+<button onclick="scrollToSection('trending')">Trending Items</button>
+<button id="navAnalyticsBtn" onclick="handleAnalyticsNav()" style="display:none;color:#ef4444;font-weight:bold;">📊 Admin Analytics</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-content">
+<h1>
+Shop Smart.<br>
+Save More.<br>
+<span>Optimized Bundles.</span>
+</h1>
+<p>
+SmartCart AI analyzes customer purchase frequency AND business profit margins. 
+We create smart bundles that give customers better bundle savings while driving higher gross profits for the retailer.
+</p>
+<div class="hero-buttons">
+<button class="secondary" onclick="scrollToSection('combos')">
+🔥 View Smart Combo Offers
+</button>
+<button class="primary" onclick="scrollToSection('recommendations')">
+🤖 Explore AI Recommendations
+</button>
+</div>
+</div>
+</section>
+
+<main class="container">
+
+<!-- CATEGORIES -->
+<section class="section" id="categories">
+<div class="section-title">
+<h2>Shop by Category</h2>
+<p>Explore products across DMart retail & electronic departments</p>
+</div>
+<div class="category-grid">
+<div class="category" onclick="filterCategory('Electronics')">
+<div class="category-icon">💻</div>
+<p>Electronics</p>
+</div>
+<div class="category" onclick="filterCategory('Grocery & Staples')">
+<div class="category-icon">🌾</div>
+<p>Staples</p>
+</div>
+<div class="category" onclick="filterCategory('Breakfast & Dairy')">
+<div class="category-icon">🥖</div>
+<p>Breakfast</p>
+</div>
+<div class="category" onclick="filterCategory('Personal Care')">
+<div class="category-icon">🧴</div>
+<p>Personal Care</p>
+</div>
+<div class="category" onclick="filterCategory('Household Care')">
+<div class="category-icon">🧼</div>
+<p>Household</p>
+</div>
+<div class="category" onclick="filterCategory('Snacks & Munchies')">
+<div class="category-icon">🍪</div>
+<p>Snacks</p>
+</div>
+</div>
+</section>
+
+<!-- SMART COMBO OFFERS (PROFIT-OPTIMIZED BUNDLES) -->
+<section class="section" id="combos">
+<div class="section-title">
+<h2>🔥 Smart Profit-Aware Combo Offers</h2>
+<p>
+Our dual-objective algorithm matches high co-purchase affinity with high-margin companions to maximize bottom-line profit.
+</p>
+</div>
+<div class="combo-grid" id="comboGrid">
+<!-- Populated dynamically via JS -->
+</div>
+</section>
+
+<!-- AI RECOMMENDATION PANEL -->
+<section class="section" id="recommendations">
+<div class="ai-panel">
+<div class="ai-heading">
+<div>
+<h2>🤖 AI Recommendation Engine</h2>
+<p style="margin-top:6px;color:#ddd">
+Personalized using Co-purchase Lift, Customer Age, and Retail Unit Profit Margin.
+</p>
+</div>
+<div class="ai-tag">PROFIT-OPTIMIZED</div>
+</div>
+
+<div class="ai-controls">
+<select id="age" onchange="generateAI()">
+<option value="22">Target: Youth (18–25 yrs)</option>
+<option value="30" selected>Target: Working Pro (26–35 yrs)</option>
+<option value="42">Target: Family (36–50 yrs)</option>
+<option value="55">Target: Senior (51+ yrs)</option>
+</select>
+
+<select id="strategy" onchange="generateAI()">
+<option value="profit">Strategy: Maximize Profit & Value (SmartCart AI)</option>
+<option value="volume">Strategy: Traditional Apriori (Frequency Only)</option>
+</select>
+</div>
+
+<div class="products" id="aiProducts"></div>
+</div>
+</section>
+
+<!-- TRENDING PRODUCTS -->
+<section class="section" id="trending">
+<div class="section-title">
+<h2>🔥 Trending DMart Products</h2>
+<p>Catalog items showing live unit cost, selling price, and profit margin</p>
+</div>
+<div class="products" id="productGrid"></div>
+</section>
+
+<!-- FLASH DEALS -->
+<section class="section" id="deals">
+<div class="deals">
+<div class="deal-header">
+<div>
+<h2>⚡ Flash Value Deals</h2>
+<p>Limited-time promotional discounts</p>
+</div>
+<div class="timer" id="timer">00:30:00</div>
+</div>
+<div class="products" id="dealProducts"></div>
+</div>
+</section>
+
+<!-- RECENTLY VIEWED -->
+<section class="section">
+<div class="section-title">
+<h2>👀 Recently Viewed Products</h2>
+<p>Continue your session</p>
+</div>
+<div class="horizontal" id="recent"></div>
+</section>
+
+<!-- ADMIN ANALYTICS -->
+<section class="section" id="analytics">
+<div class="admin">
+<h2>📊 SmartCart Business Analytics Dashboard</h2>
+<p style="color:#aaa;margin-bottom:20px">Admin view — Revenue, Profit Margins, and Recommendation Conversions</p>
+
+<div class="stats">
+<div class="stat">
+<small>Total Revenue</small>
+<h3>₹47.1L</h3>
+</div>
+<div class="stat">
+<small>Gross Profit</small>
+<h3 class="green">₹10.3L</h3>
+</div>
+<div class="stat">
+<small>Average Order Value</small>
+<h3 class="orange">₹18,876</h3>
+</div>
+<div class="stat">
+<small>Recommendation Conversion</small>
+<h3 class="blue">38.4%</h3>
+</div>
+</div>
+
+<div class="chart">
+<h3>Top Product Performance & Gross Margins</h3>
+<div class="bar">
+<div class="bar-title"><span>Intel Core i5 Thin Laptop Bundle</span><span>₹7,887 Profit (15.3% margin)</span></div>
+<div class="bar-bg"><div class="bar-fill" style="width:85%"></div></div>
+</div>
+<div class="bar">
+<div class="bar-title"><span>Crunchy Peanut Butter + Jam Bundle</span><span>₹135 Profit (42.5% margin)</span></div>
+<div class="bar-bg"><div class="bar-fill" style="width:94%; background:#4ade80"></div></div>
+</div>
+<div class="bar">
+<div class="bar-title"><span>Liquid Detergent + Fabric Softener</span><span>₹175 Profit (43.4% margin)</span></div>
+<div class="bar-bg"><div class="bar-fill" style="width:78%"></div></div>
+</div>
+<div class="bar">
+<div class="bar-title"><span>Shampoo + Conditioner Hair Care Bundle</span><span>₹270 Profit (48.2% margin)</span></div>
+<div class="bar-bg"><div class="bar-fill" style="width:88%; background:#fb923c"></div></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<!-- PRODUCT MODAL -->
+<div class="modal-bg" id="modalBg">
+<div class="modal">
+<button class="close" onclick="closeModal()">✕</button>
+<div id="modalContent"></div>
+</div>
+</div>
+
+<!-- AUTH / LOGIN MODAL (SEPARATE ADMIN & CUSTOMER LOGIN) -->
+<div class="modal-bg" id="authModalBg">
+<div class="modal" style="max-width:520px;padding:30px;">
+<button class="close" onclick="closeAuthModal()">✕</button>
+<h2 style="color:#7b1fa2;margin-bottom:6px;">🔐 Account Portal</h2>
+<p style="color:#666;font-size:14px;margin-bottom:20px;">Role-Based Authentication: Customer vs Store Admin</p>
+
+<div style="display:flex;gap:10px;margin-bottom:20px;">
+    <button id="tabCustomerBtn" onclick="showAuthTab('customer')" style="flex:1;padding:10px;border-radius:6px;background:#7b1fa2;color:white;font-weight:bold;">👤 Customer Login</button>
+    <button id="tabAdminBtn" onclick="showAuthTab('admin')" style="flex:1;padding:10px;border-radius:6px;background:#eee;color:#333;font-weight:bold;">👑 Store Admin</button>
+</div>
+
+<!-- Customer Form -->
+<div id="customerAuthForm">
+    <label style="display:block;font-size:13px;font-weight:bold;margin-bottom:5px;">Your Name / Shopper ID:</label>
+    <input id="custNameInput" value="Ramesh Kumar" style="width:100%;padding:12px;border:1px solid #ccc;border-radius:6px;margin-bottom:15px;" placeholder="Enter name">
+    <button onclick="loginAsCustomer()" style="width:100%;padding:13px;background:#3b82f6;color:white;border-radius:6px;font-weight:bold;font-size:15px;">Login as Customer</button>
+    <p style="color:#888;font-size:12px;margin-top:10px;">✓ Access product bundles, deals, and customer cart.</p>
+</div>
+
+<!-- Admin Form -->
+<div id="adminAuthForm" style="display:none;">
+    <div style="background:#fee2e2;color:#991b1b;padding:10px;border-radius:6px;font-size:12px;margin-bottom:14px;">
+        ⚠️ Confidential: Store revenue, profit margins, and analytics.
+    </div>
+    <label style="display:block;font-size:13px;font-weight:bold;margin-bottom:5px;">Admin Username:</label>
+    <input id="adminUserInput" value="admin" style="width:100%;padding:12px;border:1px solid #ccc;border-radius:6px;margin-bottom:12px;">
+    
+    <label style="display:block;font-size:13px;font-weight:bold;margin-bottom:5px;">Admin Password:</label>
+    <input id="adminPassInput" type="password" value="admin123" style="width:100%;padding:12px;border:1px solid #ccc;border-radius:6px;margin-bottom:18px;">
+    
+    <button onclick="loginAsAdmin()" style="width:100%;padding:13px;background:#ef4444;color:white;border-radius:6px;font-weight:bold;font-size:15px;">Login as Store Admin</button>
+    <p style="color:#888;font-size:12px;margin-top:10px;">Default Credentials: <b>admin</b> / <b>admin123</b></p>
+</div>
+
+<div id="logoutSection" style="display:none;margin-top:20px;border-top:1px solid #eee;padding-top:15px;">
+    <button onclick="logoutUser()" style="width:100%;padding:10px;background:#64748b;color:white;border-radius:6px;">Logout / Switch Account</button>
+</div>
+</div>
+</div>
+
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart" id="cart">
+<button class="cart-close" onclick="closeCart()">✕</button>
+<h2>🛒 Shopping Cart</h2>
+<div id="cartItems"></div>
+<div class="cart-total">
+<div class="total-line">
+<span>Subtotal</span>
+<strong>₹<span id="subtotal">0</span></strong>
+</div>
+<div class="total-line">
+<span>Smart Bundle Savings</span>
+<strong class="green">-₹<span id="saving">0</span></strong>
+</div>
+<div class="total-line" style="font-size:18px;">
+<strong>Total Pay</strong>
+<strong>₹<span id="total">0</span></strong>
+</div>
+<button class="checkout" onclick="checkout()">Proceed to Checkout</button>
+</div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">Added to cart!</div>
+
+<!-- FOOTER -->
+<footer>
+<h2>SmartCart AI</h2>
+<p>AI-Powered E-Commerce Recommendation & Profit Optimization Platform</p>
+<br>
+<p>Dual-Objective Market Basket Analysis • Apriori Engine • Retail Margin Optimization</p>
+</footer>
+
+<script>
+/* PRODUCT DATA WITH EXACT UNIT ECONOMICS */
+const products = [
+    {
+        id: 1,
+        name: "Intel Core i5 Thin Laptop",
+        category: "Electronics",
+        price: 49990,
+        old: 54990,
+        cost: 42000,
+        profit: 7990,
+        sales: 450,
+        rating: 4.8,
+        tags: ["laptop", "electronics", "work"],
+        img: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600"
+    },
+    {
+        id: 2,
+        name: "Wireless Ergonomic Mouse",
+        category: "Electronics",
+        price: 899,
+        old: 1299,
+        cost: 380,
+        profit: 519,
+        sales: 1200,
+        rating: 4.6,
+        tags: ["laptop", "mouse", "electronics"],
+        img: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600"
+    },
+    {
+        id: 3,
+        name: "Padded Laptop Backpack 15.6 inch",
+        category: "Electronics",
+        price: 1299,
+        old: 1999,
+        cost: 450,
+        profit: 849,
+        sales: 850,
+        rating: 4.7,
+        tags: ["laptop", "bag", "electronics"],
+        img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600"
+    },
+    {
+        id: 4,
+        name: "Backlit Mechanical Keyboard",
+        category: "Electronics",
+        price: 2199,
+        old: 2999,
+        cost: 950,
+        profit: 1249,
+        sales: 620,
+        rating: 4.5,
+        tags: ["laptop", "keyboard", "electronics"],
+        img: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=600"
+    },
+    {
+        id: 5,
+        name: "Premium Wheat Bread",
+        category: "Breakfast & Dairy",
+        price: 28,
+        old: 35,
+        cost: 22,
+        profit: 6,
+        sales: 2400,
+        rating: 4.6,
+        tags: ["breakfast", "grocery", "bread"],
+        img: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600"
+    },
+    {
+        id: 6,
+        name: "Creamy Butter 100g",
+        category: "Breakfast & Dairy",
+        price: 52,
+        old: 60,
+        cost: 42,
+        profit: 10,
+        sales: 1950,
+        rating: 4.5,
+        tags: ["breakfast", "grocery"],
+        img: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=600"
+    },
+    {
+        id: 7,
+        name: "Crunchy Peanut Butter 350g",
+        category: "Breakfast & Dairy",
+        price: 175,
+        old: 220,
+        cost: 95,
+        profit: 80,
+        sales: 650,
+        rating: 4.7,
+        tags: ["breakfast", "grocery", "protein"],
+        img: "https://images.unsplash.com/photo-1589367920969-ab8e050bbb04?w=600"
+    },
+    {
+        id: 8,
+        name: "Mixed Fruit Jam 500g",
+        category: "Breakfast & Dairy",
+        price: 140,
+        old: 175,
+        cost: 85,
+        profit: 55,
+        sales: 820,
+        rating: 4.4,
+        tags: ["breakfast", "grocery"],
+        img: "https://images.unsplash.com/photo-1590412200988-a436970781fa?w=600"
+    },
+    {
+        id: 9,
+        name: "5G Smartphone 128GB",
+        category: "Electronics",
+        price: 18499,
+        old: 21999,
+        cost: 15500,
+        profit: 2999,
+        sales: 780,
+        rating: 4.7,
+        tags: ["phone", "electronics"],
+        img: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600"
+    },
+    {
+        id: 10,
+        name: "Fast 65W GaN Charger",
+        category: "Electronics",
+        price: 1199,
+        old: 1699,
+        cost: 420,
+        profit: 779,
+        sales: 980,
+        rating: 4.6,
+        tags: ["phone", "charger", "electronics"],
+        img: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600"
+    },
+    {
+        id: 11,
+        name: "20000mAh Dual Output Power Bank",
+        category: "Electronics",
+        price: 1699,
+        old: 2299,
+        cost: 750,
+        profit: 949,
+        sales: 890,
+        rating: 4.5,
+        tags: ["phone", "power", "electronics"],
+        img: "https://images.unsplash.com/photo-1609592424817-2b3d3c8b8e0f?w=600"
+    },
+    {
+        id: 12,
+        name: "Active Noise Cancelling Earbuds",
+        category: "Electronics",
+        price: 2499,
+        old: 3499,
+        cost: 990,
+        profit: 1509,
+        sales: 720,
+        rating: 4.6,
+        tags: ["phone", "music", "electronics"],
+        img: "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=600"
+    },
+    {
+        id: 13,
+        name: "Anti-Dandruff Shampoo 400ml",
+        category: "Personal Care",
+        price: 320,
+        old: 399,
+        cost: 180,
+        profit: 140,
+        sales: 1100,
+        rating: 4.4,
+        tags: ["personal care", "shampoo"],
+        img: "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=600"
+    },
+    {
+        id: 14,
+        name: "Nourishing Conditioner 200ml",
+        category: "Personal Care",
+        price: 240,
+        old: 299,
+        cost: 110,
+        profit: 130,
+        sales: 640,
+        rating: 4.5,
+        tags: ["personal care", "conditioner"],
+        img: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600"
+    },
+    {
+        id: 15,
+        name: "Liquid Laundry Detergent 1L",
+        category: "Household Care",
+        price: 215,
+        old: 260,
+        cost: 130,
+        profit: 85,
+        sales: 1400,
+        rating: 4.6,
+        tags: ["household", "laundry"],
+        img: "https://images.unsplash.com/photo-1585421514738-01798e348b17?w=600"
+    },
+    {
+        id: 16,
+        name: "Fabric Softener Conditioner 800ml",
+        category: "Household Care",
+        price: 225,
+        old: 280,
+        cost: 110,
+        profit: 115,
+        sales: 580,
+        rating: 4.5,
+        tags: ["household", "fabric"],
+        img: "https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?w=600"
+    }
+];
+
+let cart = [];
+let savings = 0;
+let recentlyViewed = [];
+let wishlist = [];
+
+function productCard(p){
+    let discount = Math.round(((p.old - p.price) / p.old) * 100);
+    let marginPct = Math.round(((p.price - p.cost) / p.price) * 100);
+    return `
+    <div class="product">
+        <div class="product-img">
+            <span class="badge">${p.sales > 1000 ? "BEST SELLER" : "HIGH MARGIN"}</span>
+            <button class="wishlist" onclick="toggleWishlist(${p.id})">
+                ${wishlist.includes(p.id) ? "❤️" : "♡"}
+            </button>
+            <img src="${p.img}">
+        </div>
+        <div class="product-info">
+            <div class="product-name">${p.name}</div>
+            <div class="product-category">${p.category}</div>
+            <div class="rating">⭐ ${p.rating} · ${p.sales}+ bought</div>
+            <div class="price">
+                ₹${p.price.toLocaleString()}
+                <span class="old">₹${p.old.toLocaleString()}</span>
+                <span class="discount">${discount}% OFF</span>
+            </div>
+            <div class="profit">
+                💰 Unit Profit: ₹${p.profit.toLocaleString()} (${marginPct}%)
+            </div>
+            <div class="product-actions">
+                <button class="view" onclick="viewProduct(${p.id})">Quick View</button>
+                <button class="add" onclick="addProduct(${p.id})">Add Cart</button>
+            </div>
+        </div>
+    </div>
+    `;
+}
+
+function renderProducts(list = products){
+    document.getElementById("productGrid").innerHTML = list.slice(0, 12).map(productCard).join("");
+}
+
+function searchProducts(){
+    let query = document.getElementById("searchInput").value.toLowerCase();
+    let result = products.filter(p => 
+        p.name.toLowerCase().includes(query) || 
+        p.category.toLowerCase().includes(query) || 
+        p.tags.some(tag => tag.includes(query))
+    );
+    renderProducts(result);
+    if(query){
+        scrollToSection("trending");
+    }
+}
+
+function filterCategory(category){
+    let result = products.filter(p => p.category === category);
+    renderProducts(result);
+    scrollToSection("trending");
+    showToast(`${category} loaded`);
+}
+
+function viewProduct(id){
+    let p = products.find(x => x.id === id);
+    if(!recentlyViewed.includes(id)){
+        recentlyViewed.unshift(id);
+        recentlyViewed = recentlyViewed.slice(0, 6);
+        renderRecentlyViewed();
+    }
+    let marginPct = Math.round(((p.price - p.cost) / p.price) * 100);
+
+    document.getElementById("modalContent").innerHTML = `
+    <div class="modal-product">
+        <img src="${p.img}">
+        <div class="modal-info">
+            <h2>${p.name}</h2>
+            <div class="rating">⭐⭐⭐⭐⭐ ${p.rating} (${p.sales} reviews)</div>
+            <div class="modal-price">₹${p.price.toLocaleString()}</div>
+            <p>MRP <span class="old">₹${p.old.toLocaleString()}</span> <span class="discount">${Math.round((p.old-p.price)/p.old*100)}% OFF</span></p>
+            <div class="profit" style="margin: 12px 0;">
+                Business Financials: Cost: ₹${p.cost} | Profit: ₹${p.profit} (${marginPct}% Gross Margin)
+            </div>
+            <div class="feature-list">
+                ✔ Genuine Verified Product<br>
+                ✔ DMart Store Assurance<br>
+                ✔ Fast Same-Day Delivery<br>
+                ✔ Compatible with Smart Bundle Savings
+            </div>
+            <button class="buy-now" onclick="addProduct(${p.id});closeModal()">🛒 Add to Cart</button>
+            <br><br>
+            <button class="buy-now" style="background:#ff7043" onclick="addProduct(${p.id});closeModal();openCart()">⚡ Buy Now</button>
+        </div>
+    </div>
+    <hr style="margin:25px 0">
+    <h3>🤖 Why SmartCart Recommends This?</h3>
+    <p style="margin-top:10px;color:#555;line-height:1.7">
+        This product is ranked using our <b>Dual-Objective Model</b>. It possesses strong co-purchase lift (${(p.rating/1.2).toFixed(1)}) and delivers an optimal <b>${marginPct}% profit margin</b>, maximizing both shopper value and business return.
+    </p>
+    `;
+    document.getElementById("modalBg").classList.add("show");
+}
+
+function closeModal(){
+    document.getElementById("modalBg").classList.remove("show");
+}
+
+/* SMART COMBOS ENGINE */
+function generateCombos(){
+    const comboGrid = document.getElementById("comboGrid");
+    comboGrid.innerHTML = "";
+
+    // 1. Laptop Work Bundle (Exact user example from prompt!)
+    createCombo(
+        [products[0], products[1], products[2], products[3]],
+        "💻 Ultimate Laptop Productivity Suite",
+        "Natural co-purchase cross-sell. While Laptop has 16% margin, accessories (Bag 65%, Mouse 57%, Keyboard 57%) boost total bundle profit tremendously!",
+        2400,
+        10597
+    );
+
+    // 2. High Margin Breakfast Bundle
+    createCombo(
+        [products[4], products[6], products[7]],
+        "🥖 High-Margin Gourmet Breakfast Combo",
+        "Bread is a high-volume traffic driver with slim margin. Adding Peanut Butter (45% margin) and Jam (39% margin) delivers +300% profit expansion.",
+        45,
+        141
+    );
+
+    // 3. Smartphone Travel Kit
+    createCombo(
+        [products[8], products[9], products[10]],
+        "📱 5G Smartphone Traveler Bundle",
+        "Phone buyer naturally requires charging accessories. High-margin GaN charger (65%) and Power Bank (56%) provide substantial bundle profit.",
+        1500,
+        4727
+    );
+
+    // 4. Hair Care Duo
+    createCombo(
+        [products[12], products[13]],
+        "🧴 Complete Hair Care Treatment Duo",
+        "Customers buying Anti-Dandruff Shampoo have 78% confidence to buy Conditioner. Delivers 48% blended margin.",
+        60,
+        270
+    );
+}
+
+function createCombo(items, title, reason, discount, netProfit){
+    let original = items.reduce((sum, p) => sum + p.price, 0);
+    let finalPrice = original - discount;
+
+    let itemHTML = items.map((p, i) => `
+        ${i > 0 ? '<div class="plus">+</div>' : ""}
+        <div class="combo-product">
+            <img src="${p.img}">
+            <br><b>${p.name.split(" ")[0]}</b>
+        </div>
+    `).join("");
+
+    document.getElementById("comboGrid").innerHTML += `
+    <div class="combo">
+        <div class="combo-top">
+            <span class="combo-label">AI SMART COMBO</span>
+            <span style="font-size:13px;color:#f59e0b;font-weight:bold;">⭐ 4.8</span>
+        </div>
+        <div class="combo-title">${title}</div>
+        <div class="combo-items">${itemHTML}</div>
+        <div class="combo-prices">
+            <div class="combo-old">₹${original.toLocaleString()}</div>
+            <div class="combo-new">₹${finalPrice.toLocaleString()}</div>
+            <div class="save">💰 Save ₹${discount.toLocaleString()}</div>
+        </div>
+        <div class="reason">
+            <strong>🤖 Why this combo?</strong><br>
+            ${reason}
+        </div>
+        <div class="profit-impact">
+            📈 Business Profit Earned: ₹${netProfit.toLocaleString()}
+        </div>
+        <button onclick="addCombo('${title}', ${finalPrice}, ${discount})">
+            🛒 Add Smart Combo to Cart
+        </button>
+    </div>
+    `;
+}
+
+function generateAI(){
+    let age = parseInt(document.getElementById("age").value);
+    let strategy = document.getElementById("strategy").value;
+
+    let scored = products.map(p => {
+        let score = 0;
+        let marginPct = ((p.price - p.cost) / p.price) * 100;
+
+        if(strategy === "profit"){
+            // SmartCart Multi-objective formulation
+            score += Math.min(p.sales / 2000, 1) * 25; // 25% volume
+            score += Math.min(marginPct / 60, 1) * 45; // 45% margin
+            score += (p.rating / 5) * 15;              // 15% rating
+        } else {
+            // Traditional Apriori (Frequency only)
+            score += Math.min(p.sales / 2000, 1) * 70; // 70% volume
+            score += (p.rating / 5) * 20;              // 20% rating
+        }
+
+        // Age affinity
+        if(age <= 25 && (p.tags.includes("electronics") || p.tags.includes("music"))){
+            score += 15;
+        } else if(age <= 35 && (p.tags.includes("work") || p.tags.includes("laptop") || p.tags.includes("phone"))){
+            score += 15;
+        } else if(age > 35 && (p.category === "Breakfast & Dairy" || p.category === "Household Care")){
+            score += 15;
+        }
+
+        return {
+            ...p,
+            score: Math.min(score, 100).toFixed(1)
+        };
+    });
+
+    scored.sort((a, b) => b.score - a.score);
+
+    document.getElementById("aiProducts").innerHTML = scored.slice(0, 4).map(p => `
+    <div class="product">
+        <div class="product-img">
+            <span class="badge" style="background:#7b1fa2">MATCH ${p.score}%</span>
+            <img src="${p.img}">
+        </div>
+        <div class="product-info">
+            <div class="product-name">${p.name}</div>
+            <div class="rating">⭐ ${p.rating}</div>
+            <div class="price">₹${p.price.toLocaleString()}</div>
+            <div class="profit">💰 Margin: ₹${p.profit.toLocaleString()} (${Math.round((p.profit/p.price)*100)}%)</div>
+            <div class="product-actions">
+                <button class="view" onclick="viewProduct(${p.id})">View</button>
+                <button class="add" onclick="addProduct(${p.id})">Add</button>
+            </div>
+        </div>
+    </div>
+    `).join("");
+}
+
+function renderDeals(){
+    let deals = [...products].sort((a,b) => ((b.old-b.price)/b.old) - ((a.old-a.price)/a.old));
+    document.getElementById("dealProducts").innerHTML = deals.slice(0, 4).map(productCard).join("");
+}
+
+function renderRecentlyViewed(){
+    let box = document.getElementById("recent");
+    if(recentlyViewed.length === 0){
+        box.innerHTML = "<p style='color:#777;padding:10px;'>Products you view will appear here.</p>";
+        return;
+    }
+    box.innerHTML = recentlyViewed.map(id => {
+        let p = products.find(x => x.id === id);
+        return `
+        <div class="mini-card" style="min-width:170px;background:white;border-radius:8px;padding:8px;box-shadow:0 2px 7px rgba(0,0,0,0.07);cursor:pointer;" onclick="viewProduct(${p.id})">
+            <img src="${p.img}" style="width:100%;height:110px;object-fit:cover;border-radius:6px;">
+            <div style="padding-top:6px;font-size:12px;font-weight:bold;">${p.name.substring(0, 22)}...<br>₹${p.price.toLocaleString()}</div>
+        </div>
+        `;
+    }).join("");
+}
+
+function toggleWishlist(id){
+    if(wishlist.includes(id)){
+        wishlist = wishlist.filter(x => x !== id);
+        showToast("Removed from wishlist");
+    } else {
+        wishlist.push(id);
+        showToast("❤️ Added to wishlist");
+    }
+    renderProducts();
+}
+
+function showWishlist(){
+    if(wishlist.length === 0){
+        showToast("Your wishlist is empty");
+        return;
+    }
+    let items = wishlist.map(id => products.find(p => p.id === id).name).join("\n• ");
+    alert("❤️ Your Wishlist Items:\n\n• " + items);
+}
+
+function addProduct(id){
+    let p = products.find(x => x.id === id);
+    let existing = cart.find(x => x.id === id);
+    if(existing){
+        existing.qty++;
+    } else {
+        cart.push({ id: p.id, name: p.name, price: p.price, img: p.img, qty: 1 });
+    }
+    updateCart();
+    showToast(p.name + " added to cart");
+}
+
+function addCombo(name, price, discount){
+    cart.push({
+        id: "combo-" + Date.now(),
+        name: name,
+        price: price,
+        img: "https://images.unsplash.com/photo-1607083206968-13611e3d76db?w=400",
+        qty: 1
+    });
+    savings += discount;
+    updateCart();
+    showToast("🔥 Smart Combo added!");
+}
+
+function updateCart(){
+    let box = document.getElementById("cartItems");
+    box.innerHTML = "";
+    let subtotal = 0;
+
+    cart.forEach((item, index) => {
+        subtotal += item.price * item.qty;
+        box.innerHTML += `
+        <div class="cart-item">
+            <img src="${item.img}">
+            <div class="cart-item-info">
+                <strong>${item.name}</strong>
+                ₹${item.price.toLocaleString()}
+                <div class="qty">
+                    <button onclick="changeQty(${index}, -1)">−</button>
+                    <span>${item.qty}</span>
+                    <button onclick="changeQty(${index}, 1)">+</button>
+                </div>
+                <button class="remove" onclick="removeItem(${index})">Remove</button>
+            </div>
+        </div>
+        `;
+    });
+
+    document.getElementById("cartCount").innerText = cart.reduce((sum, x) => sum + x.qty, 0);
+    document.getElementById("subtotal").innerText = subtotal.toLocaleString();
+    document.getElementById("saving").innerText = savings.toLocaleString();
+    document.getElementById("total").innerText = Math.max(0, subtotal - savings).toLocaleString();
+}
+
+function changeQty(index, value){
+    cart[index].qty += value;
+    if(cart[index].qty <= 0){
+        cart.splice(index, 1);
+    }
+    updateCart();
+}
+
+function removeItem(index){
+    cart.splice(index, 1);
+    updateCart();
+    showToast("Item removed");
+}
+
+function openCart(){
+    document.getElementById("cart").classList.add("show");
+    document.getElementById("cartOverlay").classList.add("show");
+}
+
+function closeCart(){
+    document.getElementById("cart").classList.remove("show");
+    document.getElementById("cartOverlay").classList.remove("show");
+}
+
+function checkout(){
+    if(cart.length === 0){
+        showToast("Your cart is empty");
+        return;
+    }
+    closeCart();
+    alert("🎉 Checkout Completed!\n\nThank you for shopping with SmartCart AI.\nTotal Profit Saved & Bundled Successfully!");
+    cart = [];
+    savings = 0;
+    updateCart();
+}
+
+function showToast(message){
+    let toast = document.getElementById("toast");
+    toast.innerText = message;
+    toast.classList.add("show");
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2200);
+}
+
+function scrollToSection(id){
+    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+}
+
+function home(){
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+let currentRole = "customer"; // default: customer
+let currentUser = "Ramesh Kumar";
+
+function openAuthModal(){
+    document.getElementById("authModalBg").classList.add("show");
+}
+
+function closeAuthModal(){
+    document.getElementById("authModalBg").classList.remove("show");
+}
+
+function showAuthTab(type){
+    if(type === 'customer'){
+        document.getElementById("customerAuthForm").style.display = "block";
+        document.getElementById("adminAuthForm").style.display = "none";
+        document.getElementById("tabCustomerBtn").style.background = "#7b1fa2";
+        document.getElementById("tabCustomerBtn").style.color = "white";
+        document.getElementById("tabAdminBtn").style.background = "#eee";
+        document.getElementById("tabAdminBtn").style.color = "#333";
+    } else {
+        document.getElementById("customerAuthForm").style.display = "none";
+        document.getElementById("adminAuthForm").style.display = "block";
+        document.getElementById("tabCustomerBtn").style.background = "#eee";
+        document.getElementById("tabCustomerBtn").style.color = "#333";
+        document.getElementById("tabAdminBtn").style.background = "#ef4444";
+        document.getElementById("tabAdminBtn").style.color = "white";
+    }
+}
+
+function loginAsCustomer(){
+    let name = document.getElementById("custNameInput").value || "Ramesh Kumar";
+    currentRole = "customer";
+    currentUser = name;
+    applyRolePermissions();
+    closeAuthModal();
+    showToast("Logged in as Customer: " + name);
+}
+
+function loginAsAdmin(){
+    let u = document.getElementById("adminUserInput").value;
+    let p = document.getElementById("adminPassInput").value;
+    if(u === "admin" && p === "admin123"){
+        currentRole = "admin";
+        currentUser = "Store Administrator";
+        applyRolePermissions();
+        closeAuthModal();
+        showToast("👑 Admin Mode Activated!");
+    } else {
+        alert("Invalid Admin credentials! Use: admin / admin123");
+    }
+}
+
+function logoutUser(){
+    currentRole = "customer";
+    currentUser = "Guest Customer";
+    applyRolePermissions();
+    closeAuthModal();
+    showToast("Logged out to Guest Customer mode");
+}
+
+function applyRolePermissions(){
+    if(currentRole === "admin"){
+        document.getElementById("roleIndicator").style.background = "#fee2e2";
+        document.getElementById("roleIndicator").style.color = "#991b1b";
+        document.getElementById("roleDot").style.background = "#ef4444";
+        document.getElementById("roleText").innerText = "Admin: Manager";
+        document.getElementById("roleSubtitle").innerText = "ADMIN BUSINESS CONSOLE";
+        document.getElementById("accountBtnText").innerText = "Admin Portal";
+        document.getElementById("navAnalyticsBtn").style.display = "inline-block";
+        document.getElementById("analytics").style.display = "block";
+        document.getElementById("logoutSection").style.display = "block";
+    } else {
+        document.getElementById("roleIndicator").style.background = "#eff6ff";
+        document.getElementById("roleIndicator").style.color = "#1e40af";
+        document.getElementById("roleDot").style.background = "#3b82f6";
+        document.getElementById("roleText").innerText = "Customer: " + currentUser;
+        document.getElementById("roleSubtitle").innerText = "PROFIT-AWARE AI SHOPPING";
+        document.getElementById("accountBtnText").innerText = "Account / Login";
+        document.getElementById("navAnalyticsBtn").style.display = "none";
+        document.getElementById("analytics").style.display = "none";
+        document.getElementById("logoutSection").style.display = "none";
+    }
+}
+
+function handleAnalyticsNav(){
+    if(currentRole === "admin"){
+        scrollToSection("analytics");
+    } else {
+        alert("🔒 Access Restricted: Store Admin login required to view business analytics.");
+        openAuthModal();
+    }
+}
+
+// Flash Sale Timer Countdown
+let seconds = 1800;
+setInterval(() => {
+    seconds--;
+    if(seconds < 0) seconds = 1800;
+    let h = String(Math.floor(seconds / 3600)).padStart(2, "0");
+    let m = String(Math.floor((seconds % 3600) / 60)).padStart(2, "0");
+    let s = String(seconds % 60).padStart(2, "0");
+    document.getElementById("timer").innerText = `${h}:${m}:${s}`;
+}, 1000);
+
+// Init
+applyRolePermissions();
+renderProducts();
+generateAI();
+generateCombos();
+renderDeals();
+renderRecentlyViewed();
+updateCart();
+</script>
+</body>
+</html>

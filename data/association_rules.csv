@@ -1,0 +1,199 @@
+Antecedent,Consequent,Support,Confidence,Lift,Itemset_Size,Consequent_Category,Consequent_Price,Consequent_Profit,Consequent_Margin_Pct,Bundle_Price,Bundle_Profit,Bundle_Margin_Pct
+Backlit Mechanical Keyboard,Intel Core i5 Thin Laptop,0.2052,0.926,3.7703,2,Electronics,49990.0,7990.0,15.98,52189.0,9239.0,17.7
+Intel Core i5 Thin Laptop,Backlit Mechanical Keyboard,0.2052,0.8355,3.7703,2,Electronics,2199.0,1249.0,56.8,52189.0,9239.0,17.7
+Backlit Mechanical Keyboard,Padded Laptop Backpack 15.6 inch,0.1836,0.8285,3.3516,2,Electronics,1299.0,849.0,65.36,3498.0,2098.0,59.98
+Padded Laptop Backpack 15.6 inch,Backlit Mechanical Keyboard,0.1836,0.7427,3.3516,2,Electronics,2199.0,1249.0,56.8,3498.0,2098.0,59.98
+Backlit Mechanical Keyboard,Wireless Ergonomic Mouse,0.1864,0.8412,3.2253,2,Electronics,899.0,519.0,57.73,3098.0,1768.0,57.07
+Wireless Ergonomic Mouse,Backlit Mechanical Keyboard,0.1864,0.7147,3.2253,2,Electronics,2199.0,1249.0,56.8,3098.0,1768.0,57.07
+Intel Core i5 Thin Laptop,Padded Laptop Backpack 15.6 inch,0.2024,0.8241,3.3338,2,Electronics,1299.0,849.0,65.36,51289.0,8839.0,17.23
+Padded Laptop Backpack 15.6 inch,Intel Core i5 Thin Laptop,0.2024,0.8188,3.3338,2,Electronics,49990.0,7990.0,15.98,51289.0,8839.0,17.23
+Intel Core i5 Thin Laptop,Wireless Ergonomic Mouse,0.2084,0.8485,3.2536,2,Electronics,899.0,519.0,57.73,50889.0,8509.0,16.72
+Wireless Ergonomic Mouse,Intel Core i5 Thin Laptop,0.2084,0.7991,3.2536,2,Electronics,49990.0,7990.0,15.98,50889.0,8509.0,16.72
+Padded Laptop Backpack 15.6 inch,Wireless Ergonomic Mouse,0.184,0.7443,2.8541,2,Electronics,899.0,519.0,57.73,2198.0,1368.0,62.24
+Wireless Ergonomic Mouse,Padded Laptop Backpack 15.6 inch,0.184,0.7055,2.8541,2,Electronics,1299.0,849.0,65.36,2198.0,1368.0,62.24
+Anti-Dandruff Shampoo 400ml,Moisturizing Bath Soap 4-Pack,0.0884,0.5755,4.2949,2,Personal Care,165.0,55.0,33.33,485.0,195.0,40.21
+Moisturizing Bath Soap 4-Pack,Anti-Dandruff Shampoo 400ml,0.0884,0.6597,4.2949,2,Personal Care,320.0,140.0,43.75,485.0,195.0,40.21
+Anti-Dandruff Shampoo 400ml,Nourishing Conditioner 200ml,0.0852,0.5547,5.5692,2,Personal Care,240.0,130.0,54.17,560.0,270.0,48.21
+Nourishing Conditioner 200ml,Anti-Dandruff Shampoo 400ml,0.0852,0.8554,5.5692,2,Personal Care,320.0,140.0,43.75,560.0,270.0,48.21
+Moisturizing Bath Soap 4-Pack,Nourishing Conditioner 200ml,0.0676,0.5045,5.065,2,Personal Care,240.0,130.0,54.17,405.0,185.0,45.68
+Nourishing Conditioner 200ml,Moisturizing Bath Soap 4-Pack,0.0676,0.6787,5.065,2,Personal Care,165.0,55.0,33.33,405.0,185.0,45.68
+Refined Pure Sugar 1kg,Fresh Cow Milk 1L,0.0388,0.4686,2.3715,2,Breakfast & Dairy,64.0,6.0,9.38,112.0,12.0,10.71
+Fabric Softener Conditioner 800ml,Liquid Laundry Detergent 1L,0.0712,0.8683,6.4992,2,Household Care,215.0,85.0,39.53,440.0,200.0,45.45
+Liquid Laundry Detergent 1L,Fabric Softener Conditioner 800ml,0.0712,0.5329,6.4992,2,Household Care,225.0,115.0,51.11,440.0,200.0,45.45
+Creamy Butter 100g,Fresh Cow Milk 1L,0.0976,0.5768,2.9192,2,Breakfast & Dairy,64.0,6.0,9.38,116.0,16.0,13.79
+Fresh Cow Milk 1L,Creamy Butter 100g,0.0976,0.4939,2.9192,2,Breakfast & Dairy,52.0,10.0,19.23,116.0,16.0,13.79
+Creamy Butter 100g,Mixed Fruit Jam 500g,0.0924,0.5461,4.2399,2,Breakfast & Dairy,140.0,55.0,39.29,192.0,65.0,33.85
+Mixed Fruit Jam 500g,Creamy Butter 100g,0.0924,0.7174,4.2399,2,Breakfast & Dairy,52.0,10.0,19.23,192.0,65.0,33.85
+Creamy Butter 100g,Premium Wheat Bread,0.1136,0.6714,3.8322,2,Breakfast & Dairy,28.0,6.0,21.43,80.0,16.0,20.0
+Premium Wheat Bread,Creamy Butter 100g,0.1136,0.6484,3.8322,2,Breakfast & Dairy,52.0,10.0,19.23,80.0,16.0,20.0
+Fresh Cow Milk 1L,Mixed Fruit Jam 500g,0.0892,0.4514,3.5048,2,Breakfast & Dairy,140.0,55.0,39.29,204.0,61.0,29.9
+Mixed Fruit Jam 500g,Fresh Cow Milk 1L,0.0892,0.6925,3.5048,2,Breakfast & Dairy,64.0,6.0,9.38,204.0,61.0,29.9
+Fresh Cow Milk 1L,Premium Wheat Bread,0.1128,0.5709,3.2583,2,Breakfast & Dairy,28.0,6.0,21.43,92.0,12.0,13.04
+Premium Wheat Bread,Fresh Cow Milk 1L,0.1128,0.6438,3.2583,2,Breakfast & Dairy,64.0,6.0,9.38,92.0,12.0,13.04
+Mixed Fruit Jam 500g,Premium Wheat Bread,0.1076,0.8354,4.7683,2,Breakfast & Dairy,28.0,6.0,21.43,168.0,61.0,36.31
+Premium Wheat Bread,Mixed Fruit Jam 500g,0.1076,0.6142,4.7683,2,Breakfast & Dairy,140.0,55.0,39.29,168.0,61.0,36.31
+Chakki Fresh Atta 5kg,Refined Sunflower Oil 1L,0.0484,0.4432,4.4861,2,Grocery & Staples,142.0,14.0,9.86,387.0,44.0,11.37
+Refined Sunflower Oil 1L,Chakki Fresh Atta 5kg,0.0484,0.4899,4.4861,2,Grocery & Staples,245.0,30.0,12.24,387.0,44.0,11.37
+Chakki Fresh Atta 5kg,Toor Dal 1kg,0.0524,0.4799,5.1486,2,Grocery & Staples,165.0,20.0,12.12,410.0,50.0,12.2
+Toor Dal 1kg,Chakki Fresh Atta 5kg,0.0524,0.5622,5.1486,2,Grocery & Staples,245.0,30.0,12.24,410.0,50.0,12.2
+Refined Sunflower Oil 1L,Toor Dal 1kg,0.0432,0.4372,4.6915,2,Grocery & Staples,165.0,20.0,12.12,307.0,34.0,11.07
+Toor Dal 1kg,Refined Sunflower Oil 1L,0.0432,0.4635,4.6915,2,Grocery & Staples,142.0,14.0,9.86,307.0,34.0,11.07
+Sparkling Cola Can 300ml,Anti-Dandruff Shampoo 400ml,0.012,0.2206,1.4361,2,Personal Care,320.0,140.0,43.75,360.0,158.0,43.89
+Chocolate Chip Cookies 200g,Fresh Cow Milk 1L,0.0448,0.4766,2.4119,2,Breakfast & Dairy,64.0,6.0,9.38,124.0,34.0,27.42
+Fresh Cow Milk 1L,Chocolate Chip Cookies 200g,0.0448,0.2267,2.4119,2,Snacks & Munchies,60.0,28.0,46.67,124.0,34.0,27.42
+Citrus Dishwash Gel 750ml,Fabric Softener Conditioner 800ml,0.0584,0.4725,5.7621,2,Household Care,225.0,115.0,51.11,370.0,175.0,47.3
+Fabric Softener Conditioner 800ml,Citrus Dishwash Gel 750ml,0.0584,0.7122,5.7621,2,Household Care,145.0,60.0,41.38,370.0,175.0,47.3
+Citrus Dishwash Gel 750ml,Liquid Laundry Detergent 1L,0.078,0.6311,4.7236,2,Household Care,215.0,85.0,39.53,360.0,145.0,40.28
+Liquid Laundry Detergent 1L,Citrus Dishwash Gel 750ml,0.078,0.5838,4.7236,2,Household Care,145.0,60.0,41.38,360.0,145.0,40.28
+Herbal Toothpaste 200g,Anti-Dandruff Shampoo 400ml,0.012,0.2158,1.4051,2,Personal Care,320.0,140.0,43.75,440.0,190.0,43.18
+Chakki Fresh Atta 5kg,Premium Basmati Rice 5kg,0.0524,0.4799,4.8766,2,Grocery & Staples,490.0,110.0,22.45,735.0,140.0,19.05
+Premium Basmati Rice 5kg,Chakki Fresh Atta 5kg,0.0524,0.5325,4.8766,2,Grocery & Staples,245.0,30.0,12.24,735.0,140.0,19.05
+Chakki Fresh Atta 5kg,Tata Iodized Salt 1kg,0.0548,0.5018,4.8068,2,Grocery & Staples,26.0,4.0,15.38,271.0,34.0,12.55
+Tata Iodized Salt 1kg,Chakki Fresh Atta 5kg,0.0548,0.5249,4.8068,2,Grocery & Staples,245.0,30.0,12.24,271.0,34.0,12.55
+Premium Basmati Rice 5kg,Refined Sunflower Oil 1L,0.0416,0.4228,4.279,2,Grocery & Staples,142.0,14.0,9.86,632.0,124.0,19.62
+Refined Sunflower Oil 1L,Premium Basmati Rice 5kg,0.0416,0.4211,4.279,2,Grocery & Staples,490.0,110.0,22.45,632.0,124.0,19.62
+Premium Basmati Rice 5kg,Tata Iodized Salt 1kg,0.0456,0.4634,4.4388,2,Grocery & Staples,26.0,4.0,15.38,516.0,114.0,22.09
+Tata Iodized Salt 1kg,Premium Basmati Rice 5kg,0.0456,0.4368,4.4388,2,Grocery & Staples,490.0,110.0,22.45,516.0,114.0,22.09
+Premium Basmati Rice 5kg,Toor Dal 1kg,0.0436,0.4431,4.7542,2,Grocery & Staples,165.0,20.0,12.12,655.0,130.0,19.85
+Toor Dal 1kg,Premium Basmati Rice 5kg,0.0436,0.4678,4.7542,2,Grocery & Staples,490.0,110.0,22.45,655.0,130.0,19.85
+Refined Sunflower Oil 1L,Tata Iodized Salt 1kg,0.044,0.4453,4.2657,2,Grocery & Staples,26.0,4.0,15.38,168.0,18.0,10.71
+Tata Iodized Salt 1kg,Refined Sunflower Oil 1L,0.044,0.4215,4.2657,2,Grocery & Staples,142.0,14.0,9.86,168.0,18.0,10.71
+Tata Iodized Salt 1kg,Toor Dal 1kg,0.0468,0.4483,4.8098,2,Grocery & Staples,165.0,20.0,12.12,191.0,24.0,12.57
+Toor Dal 1kg,Tata Iodized Salt 1kg,0.0468,0.5021,4.8098,2,Grocery & Staples,26.0,4.0,15.38,191.0,24.0,12.57
+Crunchy Peanut Butter 350g,Mixed Fruit Jam 500g,0.0872,0.6987,5.4248,2,Breakfast & Dairy,140.0,55.0,39.29,315.0,135.0,42.86
+Mixed Fruit Jam 500g,Crunchy Peanut Butter 350g,0.0872,0.677,5.4248,2,Breakfast & Dairy,175.0,80.0,45.71,315.0,135.0,42.86
+Crunchy Peanut Butter 350g,Premium Wheat Bread,0.1096,0.8782,5.0126,2,Breakfast & Dairy,28.0,6.0,21.43,203.0,86.0,42.36
+Premium Wheat Bread,Crunchy Peanut Butter 350g,0.1096,0.6256,5.0126,2,Breakfast & Dairy,175.0,80.0,45.71,203.0,86.0,42.36
+Creamy Butter 100g,Crunchy Peanut Butter 350g,0.0908,0.5366,4.3,2,Breakfast & Dairy,175.0,80.0,45.71,227.0,90.0,39.65
+Crunchy Peanut Butter 350g,Creamy Butter 100g,0.0908,0.7276,4.3,2,Breakfast & Dairy,52.0,10.0,19.23,227.0,90.0,39.65
+Crunchy Peanut Butter 350g,Fresh Cow Milk 1L,0.092,0.7372,3.7307,2,Breakfast & Dairy,64.0,6.0,9.38,239.0,86.0,35.98
+Fresh Cow Milk 1L,Crunchy Peanut Butter 350g,0.092,0.4656,3.7307,2,Breakfast & Dairy,175.0,80.0,45.71,239.0,86.0,35.98
+20000mAh Dual Output Power Bank,5G Smartphone 128GB,0.1456,0.657,3.4292,2,Electronics,18499.0,2999.0,16.21,20198.0,3948.0,19.55
+5G Smartphone 128GB,20000mAh Dual Output Power Bank,0.1456,0.7599,3.4292,2,Electronics,1699.0,949.0,55.86,20198.0,3948.0,19.55
+20000mAh Dual Output Power Bank,Active Noise Cancelling Earbuds,0.1476,0.6661,3.364,2,Electronics,2499.0,1509.0,60.38,4198.0,2458.0,58.55
+Active Noise Cancelling Earbuds,20000mAh Dual Output Power Bank,0.1476,0.7455,3.364,2,Electronics,1699.0,949.0,55.86,4198.0,2458.0,58.55
+20000mAh Dual Output Power Bank,Fast 65W GaN Charger,0.1292,0.583,2.858,2,Electronics,1199.0,779.0,64.97,2898.0,1728.0,59.63
+Fast 65W GaN Charger,20000mAh Dual Output Power Bank,0.1292,0.6333,2.858,2,Electronics,1699.0,949.0,55.86,2898.0,1728.0,59.63
+5G Smartphone 128GB,Active Noise Cancelling Earbuds,0.1484,0.7745,3.9118,2,Electronics,2499.0,1509.0,60.38,20998.0,4508.0,21.47
+Active Noise Cancelling Earbuds,5G Smartphone 128GB,0.1484,0.7495,3.9118,2,Electronics,18499.0,2999.0,16.21,20998.0,4508.0,21.47
+5G Smartphone 128GB,Fast 65W GaN Charger,0.1512,0.7891,3.8684,2,Electronics,1199.0,779.0,64.97,19698.0,3778.0,19.18
+Fast 65W GaN Charger,5G Smartphone 128GB,0.1512,0.7412,3.8684,2,Electronics,18499.0,2999.0,16.21,19698.0,3778.0,19.18
+Active Noise Cancelling Earbuds,Fast 65W GaN Charger,0.13,0.6566,3.2185,2,Electronics,1199.0,779.0,64.97,3698.0,2288.0,61.87
+Fast 65W GaN Charger,Active Noise Cancelling Earbuds,0.13,0.6373,3.2185,2,Electronics,2499.0,1509.0,60.38,3698.0,2288.0,61.87
+Herbal Toothpaste 200g,5G Smartphone 128GB,0.012,0.2158,1.1264,2,Electronics,18499.0,2999.0,16.21,18619.0,3049.0,16.38
+Fitness Smartwatch with SpO2,20000mAh Dual Output Power Bank,0.0328,0.5694,2.5697,2,Electronics,1699.0,949.0,55.86,4498.0,2598.0,57.76
+Sparkling Cola Can 300ml,Moisturizing Bath Soap 4-Pack,0.0124,0.2279,1.7011,2,Personal Care,165.0,55.0,33.33,205.0,73.0,35.61
+Fitness Smartwatch with SpO2,Active Noise Cancelling Earbuds,0.0344,0.5972,3.0163,2,Electronics,2499.0,1509.0,60.38,5298.0,3158.0,59.61
+Assam CTC Tea 500g,Chocolate Chip Cookies 200g,0.0444,0.4744,5.0464,2,Snacks & Munchies,60.0,28.0,46.67,290.0,98.0,33.79
+Chocolate Chip Cookies 200g,Assam CTC Tea 500g,0.0444,0.4723,5.0464,2,Breakfast & Dairy,230.0,70.0,30.43,290.0,98.0,33.79
+Assam CTC Tea 500g,Fresh Cow Milk 1L,0.0476,0.5085,2.5736,2,Breakfast & Dairy,64.0,6.0,9.38,294.0,76.0,25.85
+Fresh Cow Milk 1L,Assam CTC Tea 500g,0.0476,0.2409,2.5736,2,Breakfast & Dairy,230.0,70.0,30.43,294.0,76.0,25.85
+Assam CTC Tea 500g,Refined Pure Sugar 1kg,0.0412,0.4402,5.3161,2,Grocery & Staples,48.0,6.0,12.5,278.0,76.0,27.34
+Refined Pure Sugar 1kg,Assam CTC Tea 500g,0.0412,0.4976,5.3161,2,Breakfast & Dairy,230.0,70.0,30.43,278.0,76.0,27.34
+Chocolate Chip Cookies 200g,Refined Pure Sugar 1kg,0.0344,0.366,4.4198,2,Grocery & Staples,48.0,6.0,12.5,108.0,34.0,31.48
+Refined Pure Sugar 1kg,Chocolate Chip Cookies 200g,0.0344,0.4155,4.4198,2,Snacks & Munchies,60.0,28.0,46.67,108.0,34.0,31.48
+Crispy Potato Wafers 150g,Moisturizing Bath Soap 4-Pack,0.0124,0.2562,1.9119,2,Personal Care,165.0,55.0,33.33,205.0,75.0,36.59
+Intel Core i5 Thin Laptop + Padded Laptop Backpack 15.6 inch,Backlit Mechanical Keyboard,0.1796,0.8874,4.0043,3,Electronics,2199.0,1249.0,56.8,52189.0,9239.0,17.7
+Backlit Mechanical Keyboard + Padded Laptop Backpack 15.6 inch,Intel Core i5 Thin Laptop,0.1796,0.9782,3.983,3,Electronics,49990.0,7990.0,15.98,52189.0,9239.0,17.7
+Backlit Mechanical Keyboard + Intel Core i5 Thin Laptop,Padded Laptop Backpack 15.6 inch,0.1796,0.8752,3.5406,3,Electronics,1299.0,849.0,65.36,3498.0,2098.0,59.98
+Intel Core i5 Thin Laptop + Wireless Ergonomic Mouse,Backlit Mechanical Keyboard,0.1852,0.8887,4.0103,3,Electronics,2199.0,1249.0,56.8,52189.0,9239.0,17.7
+Backlit Mechanical Keyboard + Wireless Ergonomic Mouse,Intel Core i5 Thin Laptop,0.1852,0.9936,4.0454,3,Electronics,49990.0,7990.0,15.98,52189.0,9239.0,17.7
+Backlit Mechanical Keyboard + Intel Core i5 Thin Laptop,Wireless Ergonomic Mouse,0.1852,0.9025,3.4606,3,Electronics,899.0,519.0,57.73,3098.0,1768.0,57.07
+Padded Laptop Backpack 15.6 inch + Wireless Ergonomic Mouse,Backlit Mechanical Keyboard,0.1616,0.8783,3.9633,3,Electronics,2199.0,1249.0,56.8,3498.0,2098.0,59.98
+Backlit Mechanical Keyboard + Wireless Ergonomic Mouse,Padded Laptop Backpack 15.6 inch,0.1616,0.867,3.5071,3,Electronics,1299.0,849.0,65.36,3498.0,2098.0,59.98
+Backlit Mechanical Keyboard + Padded Laptop Backpack 15.6 inch,Wireless Ergonomic Mouse,0.1616,0.8802,3.3749,3,Electronics,899.0,519.0,57.73,3098.0,1768.0,57.07
+Padded Laptop Backpack 15.6 inch + Wireless Ergonomic Mouse,Intel Core i5 Thin Laptop,0.1808,0.9826,4.0008,3,Electronics,49990.0,7990.0,15.98,51289.0,8839.0,17.23
+Intel Core i5 Thin Laptop + Wireless Ergonomic Mouse,Padded Laptop Backpack 15.6 inch,0.1808,0.8676,3.5096,3,Electronics,1299.0,849.0,65.36,51289.0,8839.0,17.23
+Intel Core i5 Thin Laptop + Padded Laptop Backpack 15.6 inch,Wireless Ergonomic Mouse,0.1808,0.8933,3.4252,3,Electronics,899.0,519.0,57.73,50889.0,8509.0,16.72
+Moisturizing Bath Soap 4-Pack + Nourishing Conditioner 200ml,Anti-Dandruff Shampoo 400ml,0.0672,0.9941,6.4719,3,Personal Care,320.0,140.0,43.75,485.0,195.0,40.21
+Anti-Dandruff Shampoo 400ml + Nourishing Conditioner 200ml,Moisturizing Bath Soap 4-Pack,0.0672,0.7887,5.8861,3,Personal Care,165.0,55.0,33.33,485.0,195.0,40.21
+Anti-Dandruff Shampoo 400ml + Moisturizing Bath Soap 4-Pack,Nourishing Conditioner 200ml,0.0672,0.7602,7.6323,3,Personal Care,240.0,130.0,54.17,560.0,270.0,48.21
+Fresh Cow Milk 1L + Mixed Fruit Jam 500g,Creamy Butter 100g,0.0748,0.8386,4.9561,3,Breakfast & Dairy,52.0,10.0,19.23,116.0,16.0,13.79
+Creamy Butter 100g + Mixed Fruit Jam 500g,Fresh Cow Milk 1L,0.0748,0.8095,4.0968,3,Breakfast & Dairy,64.0,6.0,9.38,116.0,16.0,13.79
+Creamy Butter 100g + Fresh Cow Milk 1L,Mixed Fruit Jam 500g,0.0748,0.7664,5.9503,3,Breakfast & Dairy,140.0,55.0,39.29,192.0,65.0,33.85
+Fresh Cow Milk 1L + Premium Wheat Bread,Creamy Butter 100g,0.0928,0.8227,4.8623,3,Breakfast & Dairy,52.0,10.0,19.23,116.0,16.0,13.79
+Creamy Butter 100g + Premium Wheat Bread,Fresh Cow Milk 1L,0.0928,0.8169,4.1341,3,Breakfast & Dairy,64.0,6.0,9.38,116.0,16.0,13.79
+Creamy Butter 100g + Fresh Cow Milk 1L,Premium Wheat Bread,0.0928,0.9508,5.4271,3,Breakfast & Dairy,28.0,6.0,21.43,80.0,16.0,20.0
+Mixed Fruit Jam 500g + Premium Wheat Bread,Creamy Butter 100g,0.0888,0.8253,4.8775,3,Breakfast & Dairy,52.0,10.0,19.23,192.0,65.0,33.85
+Creamy Butter 100g + Premium Wheat Bread,Mixed Fruit Jam 500g,0.0888,0.7817,6.069,3,Breakfast & Dairy,140.0,55.0,39.29,192.0,65.0,33.85
+Creamy Butter 100g + Mixed Fruit Jam 500g,Premium Wheat Bread,0.0888,0.961,5.4854,3,Breakfast & Dairy,28.0,6.0,21.43,80.0,16.0,20.0
+Mixed Fruit Jam 500g + Premium Wheat Bread,Fresh Cow Milk 1L,0.0884,0.8216,4.1577,3,Breakfast & Dairy,64.0,6.0,9.38,204.0,61.0,29.9
+Fresh Cow Milk 1L + Premium Wheat Bread,Mixed Fruit Jam 500g,0.0884,0.7837,6.0845,3,Breakfast & Dairy,140.0,55.0,39.29,204.0,61.0,29.9
+Fresh Cow Milk 1L + Mixed Fruit Jam 500g,Premium Wheat Bread,0.0884,0.991,5.6566,3,Breakfast & Dairy,28.0,6.0,21.43,92.0,12.0,13.04
+Refined Sunflower Oil 1L + Toor Dal 1kg,Chakki Fresh Atta 5kg,0.0396,0.9167,8.3944,3,Grocery & Staples,245.0,30.0,12.24,387.0,44.0,11.37
+Chakki Fresh Atta 5kg + Toor Dal 1kg,Refined Sunflower Oil 1L,0.0396,0.7557,7.649,3,Grocery & Staples,142.0,14.0,9.86,387.0,44.0,11.37
+Chakki Fresh Atta 5kg + Refined Sunflower Oil 1L,Toor Dal 1kg,0.0396,0.8182,8.7788,3,Grocery & Staples,165.0,20.0,12.12,410.0,50.0,12.2
+Fabric Softener Conditioner 800ml + Liquid Laundry Detergent 1L,Citrus Dishwash Gel 750ml,0.0576,0.809,6.5452,3,Household Care,145.0,60.0,41.38,370.0,175.0,47.3
+Citrus Dishwash Gel 750ml + Liquid Laundry Detergent 1L,Fabric Softener Conditioner 800ml,0.0576,0.7385,9.0056,3,Household Care,225.0,115.0,51.11,370.0,175.0,47.3
+Citrus Dishwash Gel 750ml + Fabric Softener Conditioner 800ml,Liquid Laundry Detergent 1L,0.0576,0.9863,7.3825,3,Household Care,215.0,85.0,39.53,360.0,145.0,40.28
+Premium Basmati Rice 5kg + Refined Sunflower Oil 1L,Chakki Fresh Atta 5kg,0.0364,0.875,8.0128,3,Grocery & Staples,245.0,30.0,12.24,735.0,140.0,19.05
+Chakki Fresh Atta 5kg + Refined Sunflower Oil 1L,Premium Basmati Rice 5kg,0.0364,0.7521,7.6429,3,Grocery & Staples,490.0,110.0,22.45,735.0,140.0,19.05
+Chakki Fresh Atta 5kg + Premium Basmati Rice 5kg,Refined Sunflower Oil 1L,0.0364,0.6947,7.0309,3,Grocery & Staples,142.0,14.0,9.86,387.0,44.0,11.37
+Premium Basmati Rice 5kg + Tata Iodized Salt 1kg,Chakki Fresh Atta 5kg,0.042,0.9211,8.4345,3,Grocery & Staples,245.0,30.0,12.24,735.0,140.0,19.05
+Chakki Fresh Atta 5kg + Tata Iodized Salt 1kg,Premium Basmati Rice 5kg,0.042,0.7664,7.7889,3,Grocery & Staples,490.0,110.0,22.45,735.0,140.0,19.05
+Chakki Fresh Atta 5kg + Premium Basmati Rice 5kg,Tata Iodized Salt 1kg,0.042,0.8015,7.6775,3,Grocery & Staples,26.0,4.0,15.38,271.0,34.0,12.55
+Premium Basmati Rice 5kg + Toor Dal 1kg,Chakki Fresh Atta 5kg,0.0412,0.945,8.6534,3,Grocery & Staples,245.0,30.0,12.24,735.0,140.0,19.05
+Chakki Fresh Atta 5kg + Toor Dal 1kg,Premium Basmati Rice 5kg,0.0412,0.7863,7.9904,3,Grocery & Staples,490.0,110.0,22.45,735.0,140.0,19.05
+Chakki Fresh Atta 5kg + Premium Basmati Rice 5kg,Toor Dal 1kg,0.0412,0.7863,8.4363,3,Grocery & Staples,165.0,20.0,12.12,410.0,50.0,12.2
+Refined Sunflower Oil 1L + Tata Iodized Salt 1kg,Chakki Fresh Atta 5kg,0.04,0.9091,8.325,3,Grocery & Staples,245.0,30.0,12.24,387.0,44.0,11.37
+Chakki Fresh Atta 5kg + Tata Iodized Salt 1kg,Refined Sunflower Oil 1L,0.04,0.7299,7.3879,3,Grocery & Staples,142.0,14.0,9.86,387.0,44.0,11.37
+Chakki Fresh Atta 5kg + Refined Sunflower Oil 1L,Tata Iodized Salt 1kg,0.04,0.8264,7.9162,3,Grocery & Staples,26.0,4.0,15.38,271.0,34.0,12.55
+Tata Iodized Salt 1kg + Toor Dal 1kg,Chakki Fresh Atta 5kg,0.044,0.9402,8.6096,3,Grocery & Staples,245.0,30.0,12.24,271.0,34.0,12.55
+Chakki Fresh Atta 5kg + Toor Dal 1kg,Tata Iodized Salt 1kg,0.044,0.8397,8.0431,3,Grocery & Staples,26.0,4.0,15.38,271.0,34.0,12.55
+Chakki Fresh Atta 5kg + Tata Iodized Salt 1kg,Toor Dal 1kg,0.044,0.8029,8.615,3,Grocery & Staples,165.0,20.0,12.12,410.0,50.0,12.2
+Refined Sunflower Oil 1L + Tata Iodized Salt 1kg,Premium Basmati Rice 5kg,0.0328,0.7455,7.5758,3,Grocery & Staples,490.0,110.0,22.45,632.0,124.0,19.62
+Premium Basmati Rice 5kg + Tata Iodized Salt 1kg,Refined Sunflower Oil 1L,0.0328,0.7193,7.2803,3,Grocery & Staples,142.0,14.0,9.86,632.0,124.0,19.62
+Premium Basmati Rice 5kg + Refined Sunflower Oil 1L,Tata Iodized Salt 1kg,0.0328,0.7885,7.5523,3,Grocery & Staples,26.0,4.0,15.38,516.0,114.0,22.09
+Refined Sunflower Oil 1L + Toor Dal 1kg,Premium Basmati Rice 5kg,0.032,0.7407,7.5279,3,Grocery & Staples,490.0,110.0,22.45,632.0,124.0,19.62
+Premium Basmati Rice 5kg + Toor Dal 1kg,Refined Sunflower Oil 1L,0.032,0.7339,7.4286,3,Grocery & Staples,142.0,14.0,9.86,632.0,124.0,19.62
+Premium Basmati Rice 5kg + Refined Sunflower Oil 1L,Toor Dal 1kg,0.032,0.7692,8.2535,3,Grocery & Staples,165.0,20.0,12.12,655.0,130.0,19.85
+Tata Iodized Salt 1kg + Toor Dal 1kg,Premium Basmati Rice 5kg,0.0356,0.7607,7.7305,3,Grocery & Staples,490.0,110.0,22.45,516.0,114.0,22.09
+Premium Basmati Rice 5kg + Toor Dal 1kg,Tata Iodized Salt 1kg,0.0356,0.8165,7.821,3,Grocery & Staples,26.0,4.0,15.38,516.0,114.0,22.09
+Premium Basmati Rice 5kg + Tata Iodized Salt 1kg,Toor Dal 1kg,0.0356,0.7807,8.3766,3,Grocery & Staples,165.0,20.0,12.12,655.0,130.0,19.85
+Tata Iodized Salt 1kg + Toor Dal 1kg,Refined Sunflower Oil 1L,0.0352,0.7521,7.6127,3,Grocery & Staples,142.0,14.0,9.86,168.0,18.0,10.71
+Refined Sunflower Oil 1L + Toor Dal 1kg,Tata Iodized Salt 1kg,0.0352,0.8148,7.8047,3,Grocery & Staples,26.0,4.0,15.38,168.0,18.0,10.71
+Refined Sunflower Oil 1L + Tata Iodized Salt 1kg,Toor Dal 1kg,0.0352,0.8,8.5837,3,Grocery & Staples,165.0,20.0,12.12,307.0,34.0,11.07
+Mixed Fruit Jam 500g + Premium Wheat Bread,Crunchy Peanut Butter 350g,0.0868,0.8067,6.4639,3,Breakfast & Dairy,175.0,80.0,45.71,315.0,135.0,42.86
+Crunchy Peanut Butter 350g + Premium Wheat Bread,Mixed Fruit Jam 500g,0.0868,0.792,6.1488,3,Breakfast & Dairy,140.0,55.0,39.29,315.0,135.0,42.86
+Crunchy Peanut Butter 350g + Mixed Fruit Jam 500g,Premium Wheat Bread,0.0868,0.9954,5.6816,3,Breakfast & Dairy,28.0,6.0,21.43,203.0,86.0,42.36
+Crunchy Peanut Butter 350g + Fresh Cow Milk 1L,Creamy Butter 100g,0.0764,0.8304,4.908,3,Breakfast & Dairy,52.0,10.0,19.23,227.0,90.0,39.65
+Creamy Butter 100g + Fresh Cow Milk 1L,Crunchy Peanut Butter 350g,0.0764,0.7828,6.2723,3,Breakfast & Dairy,175.0,80.0,45.71,227.0,90.0,39.65
+Creamy Butter 100g + Crunchy Peanut Butter 350g,Fresh Cow Milk 1L,0.0764,0.8414,4.2581,3,Breakfast & Dairy,64.0,6.0,9.38,116.0,16.0,13.79
+Crunchy Peanut Butter 350g + Mixed Fruit Jam 500g,Creamy Butter 100g,0.0704,0.8073,4.7715,3,Breakfast & Dairy,52.0,10.0,19.23,227.0,90.0,39.65
+Creamy Butter 100g + Mixed Fruit Jam 500g,Crunchy Peanut Butter 350g,0.0704,0.7619,6.105,3,Breakfast & Dairy,175.0,80.0,45.71,227.0,90.0,39.65
+Creamy Butter 100g + Crunchy Peanut Butter 350g,Mixed Fruit Jam 500g,0.0704,0.7753,6.0196,3,Breakfast & Dairy,140.0,55.0,39.29,192.0,65.0,33.85
+Crunchy Peanut Butter 350g + Premium Wheat Bread,Creamy Butter 100g,0.0892,0.8139,4.8101,3,Breakfast & Dairy,52.0,10.0,19.23,227.0,90.0,39.65
+Creamy Butter 100g + Premium Wheat Bread,Crunchy Peanut Butter 350g,0.0892,0.7852,6.2918,3,Breakfast & Dairy,175.0,80.0,45.71,227.0,90.0,39.65
+Creamy Butter 100g + Crunchy Peanut Butter 350g,Premium Wheat Bread,0.0892,0.9824,5.6072,3,Breakfast & Dairy,28.0,6.0,21.43,80.0,16.0,20.0
+Fresh Cow Milk 1L + Mixed Fruit Jam 500g,Crunchy Peanut Butter 350g,0.0716,0.8027,6.4318,3,Breakfast & Dairy,175.0,80.0,45.71,239.0,86.0,35.98
+Crunchy Peanut Butter 350g + Mixed Fruit Jam 500g,Fresh Cow Milk 1L,0.0716,0.8211,4.1554,3,Breakfast & Dairy,64.0,6.0,9.38,239.0,86.0,35.98
+Crunchy Peanut Butter 350g + Fresh Cow Milk 1L,Mixed Fruit Jam 500g,0.0716,0.7783,6.0424,3,Breakfast & Dairy,140.0,55.0,39.29,315.0,135.0,42.86
+Fresh Cow Milk 1L + Premium Wheat Bread,Crunchy Peanut Butter 350g,0.0908,0.805,6.45,3,Breakfast & Dairy,175.0,80.0,45.71,239.0,86.0,35.98
+Crunchy Peanut Butter 350g + Premium Wheat Bread,Fresh Cow Milk 1L,0.0908,0.8285,4.1926,3,Breakfast & Dairy,64.0,6.0,9.38,239.0,86.0,35.98
+Crunchy Peanut Butter 350g + Fresh Cow Milk 1L,Premium Wheat Bread,0.0908,0.987,5.6333,3,Breakfast & Dairy,28.0,6.0,21.43,203.0,86.0,42.36
+5G Smartphone 128GB + Active Noise Cancelling Earbuds,20000mAh Dual Output Power Bank,0.1232,0.8302,3.7463,3,Electronics,1699.0,949.0,55.86,20198.0,3948.0,19.55
+20000mAh Dual Output Power Bank + Active Noise Cancelling Earbuds,5G Smartphone 128GB,0.1232,0.8347,4.3564,3,Electronics,18499.0,2999.0,16.21,20198.0,3948.0,19.55
+20000mAh Dual Output Power Bank + 5G Smartphone 128GB,Active Noise Cancelling Earbuds,0.1232,0.8462,4.2735,3,Electronics,2499.0,1509.0,60.38,4198.0,2458.0,58.55
+5G Smartphone 128GB + Fast 65W GaN Charger,20000mAh Dual Output Power Bank,0.122,0.8069,3.6411,3,Electronics,1699.0,949.0,55.86,20198.0,3948.0,19.55
+20000mAh Dual Output Power Bank + Fast 65W GaN Charger,5G Smartphone 128GB,0.122,0.9443,4.9284,3,Electronics,18499.0,2999.0,16.21,20198.0,3948.0,19.55
+20000mAh Dual Output Power Bank + 5G Smartphone 128GB,Fast 65W GaN Charger,0.122,0.8379,4.1074,3,Electronics,1199.0,779.0,64.97,2898.0,1728.0,59.63
+Active Noise Cancelling Earbuds + Fast 65W GaN Charger,20000mAh Dual Output Power Bank,0.1064,0.8185,3.6934,3,Electronics,1699.0,949.0,55.86,4198.0,2458.0,58.55
+20000mAh Dual Output Power Bank + Fast 65W GaN Charger,Active Noise Cancelling Earbuds,0.1064,0.8235,4.1592,3,Electronics,2499.0,1509.0,60.38,4198.0,2458.0,58.55
+20000mAh Dual Output Power Bank + Active Noise Cancelling Earbuds,Fast 65W GaN Charger,0.1064,0.7209,3.5337,3,Electronics,1199.0,779.0,64.97,2898.0,1728.0,59.63
+Active Noise Cancelling Earbuds + Fast 65W GaN Charger,5G Smartphone 128GB,0.1268,0.9754,5.0907,3,Electronics,18499.0,2999.0,16.21,20998.0,4508.0,21.47
+5G Smartphone 128GB + Fast 65W GaN Charger,Active Noise Cancelling Earbuds,0.1268,0.8386,4.2355,3,Electronics,2499.0,1509.0,60.38,20998.0,4508.0,21.47
+5G Smartphone 128GB + Active Noise Cancelling Earbuds,Fast 65W GaN Charger,0.1268,0.8544,4.1885,3,Electronics,1199.0,779.0,64.97,19698.0,3778.0,19.18
+Active Noise Cancelling Earbuds + Fitness Smartwatch with SpO2,20000mAh Dual Output Power Bank,0.0252,0.7326,3.3058,3,Electronics,1699.0,949.0,55.86,4198.0,2458.0,58.55
+20000mAh Dual Output Power Bank + Fitness Smartwatch with SpO2,Active Noise Cancelling Earbuds,0.0252,0.7683,3.8803,3,Electronics,2499.0,1509.0,60.38,4198.0,2458.0,58.55
+Chocolate Chip Cookies 200g + Fresh Cow Milk 1L,Assam CTC Tea 500g,0.0388,0.8661,9.2529,3,Breakfast & Dairy,230.0,70.0,30.43,290.0,98.0,33.79
+Assam CTC Tea 500g + Fresh Cow Milk 1L,Chocolate Chip Cookies 200g,0.0388,0.8151,8.6716,3,Snacks & Munchies,60.0,28.0,46.67,290.0,98.0,33.79
+Assam CTC Tea 500g + Chocolate Chip Cookies 200g,Fresh Cow Milk 1L,0.0388,0.8739,4.4224,3,Breakfast & Dairy,64.0,6.0,9.38,294.0,76.0,25.85
+Chocolate Chip Cookies 200g + Refined Pure Sugar 1kg,Assam CTC Tea 500g,0.0324,0.9419,10.0626,3,Breakfast & Dairy,230.0,70.0,30.43,290.0,98.0,33.79
+Assam CTC Tea 500g + Refined Pure Sugar 1kg,Chocolate Chip Cookies 200g,0.0324,0.7864,8.366,3,Snacks & Munchies,60.0,28.0,46.67,290.0,98.0,33.79
+Assam CTC Tea 500g + Chocolate Chip Cookies 200g,Refined Pure Sugar 1kg,0.0324,0.7297,8.8132,3,Grocery & Staples,48.0,6.0,12.5,278.0,76.0,27.34
+Fresh Cow Milk 1L + Refined Pure Sugar 1kg,Assam CTC Tea 500g,0.0336,0.866,9.2519,3,Breakfast & Dairy,230.0,70.0,30.43,294.0,76.0,25.85
+Assam CTC Tea 500g + Refined Pure Sugar 1kg,Fresh Cow Milk 1L,0.0336,0.8155,4.1272,3,Breakfast & Dairy,64.0,6.0,9.38,294.0,76.0,25.85
+Assam CTC Tea 500g + Fresh Cow Milk 1L,Refined Pure Sugar 1kg,0.0336,0.7059,8.5251,3,Grocery & Staples,48.0,6.0,12.5,278.0,76.0,27.34
+Fresh Cow Milk 1L + Refined Pure Sugar 1kg,Chocolate Chip Cookies 200g,0.0304,0.7835,8.3352,3,Snacks & Munchies,60.0,28.0,46.67,124.0,34.0,27.42
+Chocolate Chip Cookies 200g + Refined Pure Sugar 1kg,Fresh Cow Milk 1L,0.0304,0.8837,4.4723,3,Breakfast & Dairy,64.0,6.0,9.38,124.0,34.0,27.42
+Chocolate Chip Cookies 200g + Fresh Cow Milk 1L,Refined Pure Sugar 1kg,0.0304,0.6786,8.1953,3,Grocery & Staples,48.0,6.0,12.5,108.0,34.0,31.48
